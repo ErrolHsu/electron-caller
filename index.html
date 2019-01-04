@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/mycss.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+    <title>ecr_caller</title>
+  </head>
+  <body>
+    <div id="app" style='margin-top: 20px;'>
+      <!-- 按鈕區 -->
+      <div style='position: relative;'>
+        <div class='btn' @click='test'>
+          測試
+        </div>
+
+        <div class='btn' @click='testDevices'>
+          測試裝置
+        </div>
+
+        <div class='btn' @click='testPrint'>
+          測試列印
+        </div>
+
+        <div class='btn' @click='openCashDrawer'>
+          開錢箱
+        </div>
+
+        <hr>
+
+        <div class='btn' @click='sale'>
+          刷卡
+        </div>
+
+        <div class='btn' @click='installment'>
+          分期付款
+        </div>
+
+        <div class='btn' @click='CUPSale'>
+          銀聯刷卡
+        </div>
+
+        <div class='btn' @click='easyCardSale'>
+          UU卡
+        </div>
+
+        <div class='btn' @click='refund'>
+          退貨
+        </div>
+
+        <hr>
+        
+        <!-- 發票 -->
+        <div class='btn' @click='issue'>
+          開發票
+        </div>
+
+        <div class='btn' @click='backupQuery("einvoices")'>
+          查詢發票
+        </div>
+
+        <div class='btn' @click='backup("einvoices")'>
+          備份發票
+        </div>
+
+        <div class='btn' @click='readBackup("einvoices")'>
+          所有發票
+        </div>
+
+        <div class='btn' @click='deleteBackup("einvoices")'>
+          刪除備份
+        </div>
+
+        <div class='btn' @click='backupDelete("einvoices")'>
+          刪除發票
+        </div>
+
+        <hr>
+
+        <!-- 訂單 -->
+
+        <div class='btn' @click='backupQuery("orders")'>
+          查詢訂單
+        </div>
+
+        <div class='btn' @click='backup("orders")'>
+          備份訂單
+        </div>
+
+        <div class='btn' @click='readBackup("orders")'>
+          所有訂單
+        </div>
+
+        <div class='btn' @click='deleteBackup("orders")'>
+          刪除備份
+        </div>
+
+        <div class='btn' @click='backupDelete("orders")'>
+          刪除訂單
+        </div>
+      </div>
+
+      <hr>
+
+      <input type="text" v-model='recordNo'>
+
+
+      <hr>
+
+      <!-- 回傳資訊區 -->
+      <div style=''> 
+        <div>
+          {{message}}
+        </div>
+
+        <div v-if='response_code' style='margin-top: 50px;'>
+          response_code: {{response_code}}
+        </div>
+
+        <div v-if='transaction_data' style='margin-top: 50px;'>
+          transaction_data: {{transaction_data}}
+        </div>
+
+        <div v-if='error' style='margin-top: 50px; color: red;'>
+          {{error}}
+        </div>
+      </div>
+
+      <div style='position: absolute; bottom: 150px; right: 300px;'> 
+        <div style='margin-top: 220px;'>
+          <span class="fa-stack fa-2x" style='position: relative;'>
+            <i class="fas fa-meteor fa-stack-1x" data-fa-transform=" rotate--5 up-76 right-72 grow-5"></i>
+            <i class="fas fa-meteor fa-stack-1x" data-fa-transform=" rotate-10 up-76 right-36 grow-10"></i>
+            <i class="fas fa-meteor fa-stack-1x" data-fa-transform=" rotate--15 up-30 right-30 grow-14"></i>
+            <i class="fas fa-meteor fa-stack-1x" data-fa-transform=" rotate--17 up-106 right-120 grow-1"></i>
+            <i class="fas fa-cloud-sun-rain fa-stack-1x" data-fa-transform="up-26 right-93 grow-6"></i>
+            <i class="fas fa-snowboarding fa-stack-1x"></i>
+            <i class="fas fa-slash fa-stack-1x" data-fa-transform="down-9 left-4"></i>
+            <i class="fab fa-opencart fa-stack-1x" data-fa-transform="down-21 right-12"></i>
+            <i class="fas fa-water fa-stack-1x" data-fa-transform="down-30 right-30"></i>
+            <i class="fas fa-water fa-stack-1x" data-fa-transform="down-30 right-48"></i>
+            <i class="fas fa-water fa-stack-1x" data-fa-transform="down-30 right-64"></i>
+            <i class="fas fa-swimmer fa-stack-1x" data-fa-transform="down-22 right-70"></i>
+            <i class="fas fa-water fa-stack-1x" data-fa-transform="down-30 right-80"></i>
+            <i class="fas fa-water fa-stack-1x" data-fa-transform="down-30 right-96"></i>
+            <i class="fas fa-water fa-stack-1x" data-fa-transform="down-30 right-112"></i>
+            <!-- <i class="fas fa-grip-horizontal fa-stack-1x" data-fa-transform="down-30 right-132"></i> -->
+          </span>
+        </div>
+      </div>
+
+
+    </div>
+  </body>
+</html>
+
+<style>
+  
+</style>
