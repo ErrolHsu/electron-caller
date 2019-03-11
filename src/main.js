@@ -21,6 +21,22 @@ new Vue({
     recordNo: '',
   },
   methods: {
+    registerPosShop () {
+      let self = this;
+
+      let params = {
+        posShopID: 1
+      }
+      axios.post('http://localhost:3001/posShop/register', params)
+        .then((response) => {
+          self.message = response.data.message;
+        })
+        .catch((error) => {
+          console.log(error.response['data']);
+          self.error = error.response['data']['message'];
+        })
+    },
+
     test () {
       let self = this;
       axios.get('http://localhost:3001/test')
@@ -48,7 +64,7 @@ new Vue({
     // 測試列印
     testPrint () {
       let self = this;
-      axios.get('http://localhost:3001/mirle/test_print')
+      axios.get('http://localhost:3001/printer/test_print')
         .then((response) => {
           self.message = response.data;
         })
@@ -60,7 +76,7 @@ new Vue({
 
     openCashDrawer () {
       let self = this;
-      axios.get('http://localhost:3001/mirle/cash_drawer')
+      axios.get('http://localhost:3001/printer/cash_drawer')
         .then((response) => {
           self.message = response.data;
         })
@@ -136,7 +152,7 @@ new Vue({
           {name: '可樂', quantity: '2', price: '100'},
         ],
       }
-      axios.post('http://localhost:3001/mirle', params)
+      axios.post('http://localhost:3001/printer', params)
         .then((response) => {
           self.message = response.data.message;
         })
@@ -230,7 +246,7 @@ new Vue({
     // AJAX
     ajax (params) {
       let self = this;
-      axios.post('http://localhost:3001/ecr', params)
+      axios.post('http://localhost:3001/edc', params)
         .then((response) => {
           console.log(response);
           self.response_code = response.data.response_code;
